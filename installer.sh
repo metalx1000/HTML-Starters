@@ -10,4 +10,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 echo "Getting Scripts..."
-wget "https://raw.githubusercontent.com/metalx1000/HTML-Starters/master/make_html" -O "${dir}make_html"
+scripts=("make_html")
+for i in "${scripts[@]}"
+do
+  wget "https://raw.githubusercontent.com/metalx1000/HTML-Starters/master/${scripts[i]}" -O "${dir}${scripts[i]}"
+  chmod +x "${dir}${scripts[i]}"
+done
+
