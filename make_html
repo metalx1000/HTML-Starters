@@ -27,7 +27,7 @@ wget "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.cs
 
 clear
 echo "Getting basic HTML file..."
- "$dir/index.html"
+wget "https://raw.githubusercontent.com/metalx1000/HTML-Starters/master/html/jquery.html" -O "$dir/index.html"
 
 $browser "$dir/index.html"
 $editor "$dir/index.html"
