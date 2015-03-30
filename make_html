@@ -1,0 +1,34 @@
+#!/bin/bash
+
+browser="google-chrome"
+editor="vim"
+
+if [ "$1" = "" ]
+then
+  echo "What do you want to call your project?"
+  read dir
+else
+  dir="$1"
+fi
+
+echo "Creating Directories for $dir"
+mkdir -p "$dir/js"
+mkdir -p "$dir/css"
+
+echo "Getting some JavaScript Libraries..."
+wget "http://code.jquery.com/jquery-1.11.2.min.js" -O "$dir/js/jquery.js"
+wget "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" -O "$dir/js/bootstrap.js"
+wget "http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js" -O "$dir/js/jquery.mobile.js"
+
+echo "Getting Some CSS Files..."
+wget "http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" -O "$dir/css/jquery.mobile.css"
+wget "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" -O "$dir/css/bootstrap.min.css"
+wget "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" -O "$dir/css/bootstrap-theme.min.css"
+
+clear
+echo "Getting basic HTML file..."
+ "$dir/index.html"
+
+$browser "$dir/index.html"
+$editor "$dir/index.html"
+
